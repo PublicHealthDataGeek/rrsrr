@@ -1,14 +1,14 @@
 # Using RStudio {#rstudio}
 
-The previous chapter taught the basic's of the R language.
+The previous chapter taught the basics of the R language.
 We entered and ran commands directly in the console.
 In this chapter we will learn how to write R scripts in RStudio's source editor.
 We will also take a step back and considers how R code fits into the wider context of scripts, projects, and getting help in RStudio.
 RStudio is an integrated development environment (IDE) for R that makes it easy to create and run scripts, explore R objects and functions, plot results, and get help.
 
-The first exercise is to open up RStudio and take a look around and identify the main components, shown in Figure \@ref(fig:rstudioui).
+The first exercise is to open up RStudio, take a look around the GUI and identify the main panes, shown in Figure \@ref(fig:rstudioui).
 **Explore each of the main components of RStudio.**
-Try clicking on different buttons in RStudio's GUI and try changing the Global Settings (in the Tools menu) and see RStudio's short cuts by pressing `Alt-Shift-K` (or `Option+Shift+K` on Mac).
+Try clicking on different buttons in RStudio's GUI,  try changing the Global Settings (in the Tools menu) and see RStudio's short cuts by pressing `Alt-Shift-K` (or `Option+Shift+K` on Mac).
 
 ```{r rstudioui, echo=FALSE, out.width="100%", fig.cap="The RStudio user interface showing the four main 'panes'."}
 # download.file("https://raw.githubusercontent.com/ITSLeeds/TDS/master/courses/2day/images/rstudio-ui.png", "figures/rstudio-ui.png")
@@ -23,13 +23,13 @@ Each project has its own folder and Rproj file.
 Start a new project with:
 
 > File > New Project
-You can choose to create a new directory (folder) or associate a project with an existing directory. Make a new project called lrrsrr (short for 'learning reproducible road safety research with R') or a name of you choice and save it in a sensible place on your computer. Notice that stats1-course now appears in the top right of RStudio.
+You can choose to create a new directory (folder) or associate a project with an existing directory. Make a new project called lrrsrr (short for 'learning reproducible road safety research with R') or a name of your choice and save it in a sensible place on your computer. Notice that stats1-course now appears in the top right of RStudio.
 
-**Scripts** are files where R code is stored and you edit them in the Source Editor panel (the top left panel in Figure \@ref(fig:rstudioui)).
+**Scripts** are files where R code is stored and you edit them in the Source Editor pane (the top left pane in Figure \@ref(fig:rstudioui)).
 **Keeping your code in sensibly named, well organised and reproducible scripts will make your life easier.**
 We could continue typing all our code into the console, as we did in Chapter \@ref(basics).
 However that approach is limited when working on anything more complicated than a few simple commands.
-Code that you want to keep and share should be saved script files, plain text files that have the `.R` extension.
+Code that you want to keep and share should be saved in R script files.  These are plain text files that have the `.R` extension.
 
 Make a new script by typing and running this command in the R console:^[
 You can also create new files by clicking on File > New File > R Script with the mouse, or with the keyboard shortcut by pressing `Ctrl+Shift+N`. You can save the script and give it a sensible name like `chapter3.R` with File > Save or `Ctrl+S`. 
@@ -44,14 +44,14 @@ That will open the Source Editor and place your cursor there.
 Try jumping between the Source Editor and the Console by pressing `Ctl+1` and `Ctl+2`.
 
 Keeping scripts and other files associated with a project in a single folder per project (in an RStudio project) will help you find things you need and develop an efficient workflow.
-To check that your project is saved, next close RStudio.
+To check that your project is saved, next close RStudio.???THIS SENTENCE DOESNT MAKE SENSE
 In the next section we will re-open it and continue to edit the `chapter3.R` file.
 
 ## Writing and running code
 
-Re-open RStudio and ensure that you have an empty file open in the Source Editor.
-We will type some basic commands into this file:
-type the following lines of code into your new `chapter3.R` R script and execute the result line-by-line by pressing Ctrl+Enter (Command+Enter on Mac):
+Re-open RStudio and ensure that you have ?YOUR EMPTY CHAPTER£.RSCIPRT file open in the Source Editor.
+We will type some basic commands into this file.
+Type the following lines of code into your new `chapter3.R` R script and execute the result line-by-line by pressing Ctrl+Enter (Command+Enter on Mac):
 
 ```{r, eval=FALSE}
 x = 1:5
@@ -61,7 +61,7 @@ plot(x, y)
 
 <!-- todo: add a gif? -->
 
-When the code is sent to the console two objects are created, both of which are vectors of 5 elements (bonus: check their length using the `length()` function).
+This sends the code to the console.  When the code is sent to the console two objects are created, both of which are vectors of 5 elements (bonus: check their length using the `length()` function).
 The third line of the code chunk plots them.
 Save the script by pressing `Ctrl+S`.
 
@@ -71,11 +71,11 @@ Try running the code you saved in the previous section using each of these metho
 1. Place the cursor in different places on each line of code and press `Ctrl+Enter` to run that line of code.
 1. Highlight a block of code or part of a line of code and press `Ctrl+Enter` to run the highlighted code.
 1. Press `Ctrl+Shift+Enter` to run all the code in a script.
-1. Press the Run button on the toolbar to run all the code in a script.
+1. Click on the Run button on the toolbar to run all the code in a script.
 1. Bonus: Use the function `source()` to run all the code in a script e.g. `source("chapter3.R")`
 <!-- (but don't create an infinite loop!) -->
 
-Practice jumping between the console and the source editor by pressing `Ctl+1` and `Ctl+2`.
+Don't forget you can jump between the console and the source editor by pressing `Ctl+1` and `Ctl+2`.
 
 ## Viewing Objects
 
@@ -85,10 +85,10 @@ Create a new script called `objects.R` and type the following commands, characte
 ```{r}
 vehicle_type = c("car", "bus", "tank")
 casualty_type = c("pedestrian", "cyclist", "cat")
-casualty_age = seq(from = 20, to = 60, by = 20)
-set.seed(1)
-dark = sample(x = c(TRUE, FALSE), size = 3, replace = TRUE)
-small_matrix = matrix(1:24, nrow = 12)
+casualty_age = seq(from = 20, to = 60, by = 20) # This creates a sequences of numbers from 20 to 60 in increments of 20
+set.seed(1) ? NEED EXPLANATION OF WHAT THIS IS DOING
+dark = sample(x = c(TRUE, FALSE), size = 3, replace = TRUE) # ? NEED EXPLANATION OF WHAT THIS IS DOING
+small_matrix = matrix(1:24, nrow = 12) ? NEED EXPLANATION OF WHAT THIS IS DOING
 crashes = data.frame(vehicle_type, casualty_type, casualty_age, dark)
 ```
 
@@ -141,7 +141,7 @@ tibble::tibble(
 
 ## Autocompletion
 
-RStudio can help you write code by autocompleting it. RStudio will look for similar objects and functions after typing the first three letters of a name.
+RStudio can help you write code by autocompleting it. RStudio will look for similar objects and functions after typing the first three letters of a name, for example:
 
 ```{r autocomp, echo=FALSE}
 # knitr::include_graphics("https://raw.githubusercontent.com/ITSLeeds/TDS/master/courses/2day/images/autocomplete.jpg")
@@ -161,7 +161,7 @@ knitr::include_graphics("figures/functionhelp.jpg")
 Test out RStudio's amazing auto-completion capabilities by typing in the beginning of object names and functions and pressing `Tab` to see what suggestions pop-up.
 Try pressing `Up` and `Down` after pressing `Tab` to select different options.
 
-**Bonus**: try autocompleting file names by typing `""` (the closing quote mark should be added automatically) and pressing `Tab` when your cursor is between the quote marks. What happens when you type `"~/"` and press `Tab` with your cursor just after the tilde (`~`) symbol. What does this mean (hint it involves the word 'home' and you can search the web to help get a full answer)?
+**Bonus**: try autocompleting file names by typing `""` (the closing quote mark should be added automatically by R) and pressing `Tab` when your cursor is between the quote marks. What happens when you type `"~/"` and press `Tab` with your cursor just after the tilde (`~`) symbol. What does this mean (hint it involves the word 'home' and you can search the web to help get a full answer)?
 
 <!-- Todo: put this answer somewhere! -->
 <!-- It means that you can use RStudio as a command line file browser, ~ means you 'home folder'! -->
@@ -169,7 +169,7 @@ Try pressing `Up` and `Down` after pressing `Tab` to select different options.
 ## Getting help
 
 Every function in R has a help page.
-You can view the help using `?` for example `?sum` and `?plot`.
+You can view the help using `?` for example `?sum` and `?plot` in the console.
 Many packages also contain vignettes, these are long form help documents containing examples and guides.
 `vignette()` will show a list of all the vignettes available, or you can show a specific vignette for example `vignette(topic = "sf1", package = "sf")`.
 
@@ -219,8 +219,8 @@ You can remove an object with the `rm()` function e.g. `rm(x)` or `rm(x, y)` or 
 ## Debugging Code
 
 All the code shown so far is reproducible and, unless you introduced typos, is 'bug free': it runs without errors.
-Typos are common though and even experienced R users frequently see error messages as they undertake interactive data analysis.
-For that reason learning to fix typos in R code is an important skill.
+Typos are common and even experienced R users frequently see error messages as they undertake interactive data analysis.
+For that reason, learning to fix typos in R code is an important skill.
 RStudio comes to the rescue here with helpful debugging features.
 To test them out, write some code that fails as shown in the code chunk and Figure \@ref(fig:debug), and answer the questions below by interacting with RStudio:
 
@@ -258,16 +258,16 @@ Rather than try to be comprehensive (an impossible task), this section provides 
 - Shortcuts: there are many, many shortcuts built into RStudio. In fact, there is even a shortcut to show the list of shortcuts. Try pressing `Alt+Shift+K` to get the complete list. Nobody I know can remember, let alone use, all of these. However, over time I expect that you will learn to love some of them. My top 5 RStudio-specific (there are many generic shortcuts such as `Ctl+A` to select all text) shortcuts are:^[
 See online articles such as "[23 RStudio Tips, Tricks and Shortcuts](https://www.dataquest.io/blog/rstudio-tips-tricks-shortcuts/)" for more comprehensive lists of useful RStudio shortcuts.
 ]
-  - `Ctl+Enter` to send a line of code from the code editor (called the Source Editor in RStudio) to be executed or 'run' in the console. Amazingly, some other prominent IDEs such as Microsoft's VSCode editor, lack this important feature by default.
-  - `Ctl+1` and `Ctl+2` to switch between the console (for writing test code and 'run once' commands) and the code editor (for writing code to keep).
-  - `Alt+Up/Down` and `Alt+Shift+Up/Down` to move and copy lines of code up and down, handy when you want to re-order your code or make small changes to a copy of a line of code.
+  - `Ctl+Enter` to send a line of code from the source editor JUST CHANGED TO SOURCE EDITOR AS THAT IS THE TERMINOLOGY YOU HAVE USED UP TO NOW to be executed or 'run' in the console. Amazingly, some other prominent IDEs such as Microsoft's VSCode editor, lack this important feature by default.
+  - `Ctl+1` and `Ctl+2` to switch between the console (for writing test code and 'run once' commands) and the source editor (for writing code to keep).
+  - `Alt+Up/Down` and `Alt+Shift+Up/Down` to move and copy lines of code up and down, handy when you want to re-order your code or ???make small changes to a copy of a line of code THIS DOESNT MAKE SENSE.
   - [`Ctl+Shift+M`](https://nhsrcommunity.com/blog/r-studio-shortcuts/) will create the pipe operator (` %>% `, this pipe was created using the shortcut!), saving time when creating `dplyr` pipelines, as discussed in Chapter \@ref(data).
-  `Ctl+Shift+F10` when you want to restart R, leaving you with a 'blank slate' in which packages are not loaded and objects are removed from the global environment
+  - `Ctl+Shift+F10` when you want to restart R, leaving you with a 'blank slate' in which packages are not loaded and objects are removed from the global environment
 <!-- - Any other key ones? Todo: think about this... -->
 
-- Git integration for collaboration: RStudio provides two mechanisms for sharing your code with others via sites such as GitHub and GitLab, with the 'Git' panel in the top right pane and via the Terminal panel described in the next section. 
+- Git integration for collaboration: RStudio provides two mechanisms for sharing your code with others via sites such as GitHub and GitLab, with the 'Git' panel in the top right pane and via the Terminal ? THERE IS INCONSISTENCY IN CAPITALISAITON OF THE PANEL NAMES -NEED TO EITHER CAPITALISE 1st LETTER OF ALL OR NOT panel described in the next section. 
 
 - Support for Python, C++ and other languages: a joke on Twitter said "What's the best Python editor? RStudio." Although most Python programmers would probably disagree, the joke is true in the sense that R has good support for some other languages, Python and C++ in particular. If you open a Python script in RStudio on a computer that has Python and the `reticulate` R package installed, the R console will magically convert into a Python console when you press `Ctl+Enter` to execute a line of Python code, as described in the article "[Reticulated Python](https://blog.rstudio.com/2018/10/09/rstudio-1-2-preview-reticulated-python/)" on the RStudio website.
 
-Like R package, an active community of developers is developing a range of extensions and RStudio itself is gradually evolving to meet the evolving needs of 21^st^ Century data scientists.
+There is an active community of developers producing a range of extensions as well as RStudio itself is gradually evolving to meet the needs of 21^st^ Century data scientists.
 If there are any features that you would like to see, you can always ask others for pointers, e.g. on the [RStudio Community forum](https://community.rstudio.com/).
